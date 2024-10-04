@@ -106,7 +106,13 @@ a{
     margin-top: 3rem;
   }
 
-  .footer-item p, h2, h3{
+  .footer-item p{
+    color: #eee6de;
+  }
+  .footer-item h2{
+    color: #eee6de;
+  }
+  .footer-item h3{
     color: #eee6de;
   }
   
