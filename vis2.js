@@ -61,8 +61,8 @@ async function render() {
       .data(StrategyData)
       .encode(
         vl.y().fieldN("platform").sort("-x") .axis({ labelFontSize: 14 }),
-        vl.x().fieldQ("platform").aggregate("count")  
-        .axis({ labelFontSize: 14 }),
+        vl.x().fieldQ("platform").aggregate("count") .axis({ labelFontSize: 14 }), 
+
         vl.tooltip().fieldN('platform'),
 
       )
