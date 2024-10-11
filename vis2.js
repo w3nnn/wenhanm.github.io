@@ -19,9 +19,9 @@ async function render() {
         vl.y().fieldN("genre").sort("-x") .axis({ labelFontSize: 14 }),
         vl.x().fieldQ("global_sales").aggregate("sum")  
         .axis({ labelFontSize: 14 }),
-        vl.tooltip().fieldN('genre')
+        vl.tooltip().fieldN('genre'),
       )
-      
+
       .width("container")
       .height(400)
       .title({ text: "Global Video Game Sales by Genre", fontSize:20}),
@@ -34,7 +34,7 @@ async function render() {
         vl.y().fieldN("platform").sort("-x") .axis({ labelFontSize: 14 }),
         vl.x().fieldQ("global_sales").aggregate("sum")  
         .axis({ labelFontSize: 14 }),
-        vl.tooltip().fieldN('platform')
+        vl.tooltip().fieldN('platform'),
       )
       .width("container")
       .height(400)
@@ -42,25 +42,29 @@ async function render() {
     //   third chart
 
     vl
-      .markArc()
-      .data(PCData)
-      .encode(
-        vl.theta().fieldQ('genre').aggregate('count'),
-        vl.color().fieldN('genre'),
-        vl.tooltip().fieldN('genre'),
-      )
+    .markBar({ color: '#423d37' })
+
+    .data(PCData)
+    .encode(
+      vl.y().fieldN("genre").sort("-x") .axis({ labelFontSize: 14 }),
+      vl.x().fieldQ("genre").aggregate("count")  
+      .axis({ labelFontSize: 14 }),
+      vl.tooltip().fieldN('genre')
+    )
       .width("container")
       .height(400)
       .title({ text: "different genere of games avaliable for PC gamers", fontSize:20}),
     //   fourth chart
 
       vl
-      .markArc()
+      .markBar({ color: '#82786f' })
       .data(StrategyData)
       .encode(
-        vl.theta().fieldQ('platform').aggregate('count'),
-        vl.color().fieldN('platform'),
+        vl.y().fieldN("platform").sort("-x") .axis({ labelFontSize: 14 }),
+        vl.x().fieldQ("platform").aggregate("count")  
+        .axis({ labelFontSize: 14 }),
         vl.tooltip().fieldN('platform'),
+
       )
       .width("container")
       .height(400)
